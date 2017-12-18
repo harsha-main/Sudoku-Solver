@@ -50,7 +50,7 @@ int width=0;
         con=context;
         sh.addCallback(this);
         setOnTouchListener(this);
-        p.setTextSize(40);
+        p.setTextSize(40*getWidth()/480);
     }
 
     @Override
@@ -69,6 +69,7 @@ width=getWidth();
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
 running = false;
+        a=new int[9][9];
         try {
             t.join();
         } catch (InterruptedException e) {
