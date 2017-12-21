@@ -42,7 +42,6 @@ Paint p;
 int width=0;
     public Surface(Context context) {
         super(context);
-        t = new Thread(this);
         smile = BitmapFactory.decodeResource(getResources(), R.drawable.smile);
         sh=getHolder();
         p=new Paint();
@@ -55,8 +54,8 @@ int width=0;
 
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        t = new Thread(this);
         t.start();
-
     }
 
     @Override
@@ -74,6 +73,7 @@ running = false;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
     }
 
     @Override
