@@ -73,7 +73,7 @@ running = false;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        Log.e("Thread", "Stopped");
     }
 
     @Override

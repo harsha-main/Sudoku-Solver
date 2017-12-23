@@ -14,4 +14,10 @@ public class MainActivity extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(new Surface(this));
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
 }
