@@ -80,6 +80,7 @@ running = false;
     public void run() {
         while (running) {
             Canvas can = sh.lockCanvas();
+            if(can==null)return;
             can.drawColor(Color.WHITE);
             p.setColor(Color.argb(200,200,200,200));
             can.drawRect(0, 0, this.getWidth(), getWidth(), p);
