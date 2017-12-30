@@ -19,5 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
     }
+    
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(Surface.running==false){Surface.running=true;
+        setContentView(new Surface(this));
+        }
+
+    }
+
 
 }
