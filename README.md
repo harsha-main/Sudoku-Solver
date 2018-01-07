@@ -10,3 +10,5 @@ numbers that could not exist ( it finds them out after applying various constrai
 
 This algorithm has a while loop in which the array data is populated and examined. If any one lead could be found in an 
 iteration, the loop continues, and if not, the loop terminates and the answers that are found are shown on the screen.
+
+Of course, a simple algoirthm using recursive technique could more efficiently solve sudoku puzzles but this method was chosen because it follows the way most people follow to solve a sudoku puzzle. The algoritihm used here to solve the puzzle is not perfect yet and some more constraints can be programmatically added to this to make this solve even the hardest puzzles.
