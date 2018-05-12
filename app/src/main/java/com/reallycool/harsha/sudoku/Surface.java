@@ -134,7 +134,10 @@ running = false;
 
         if(event.getAction()== MotionEvent.ACTION_MOVE){
             ty=event.getY();tx=event.getX();
-             temp=(int)(ty/col)-(int)(y/col)+Math.abs((int)(tx/col)-(int)(x/col));
+             int xdis=Math.abs((int)(tx/col)-(int)(x/col));
+            if(xdis<2)xdis=0;
+            else xdis--;
+             temp=(int)(ty/col)-(int)(y/col)+xdis;
              if(temp>9)temp=9;
          }
         if(event.getAction()== MotionEvent.ACTION_UP) {
