@@ -28,6 +28,7 @@ Bitmap smile;
     int temp=-1;
     float y=-1,x=-1;
     float  ty=-1,tx=-1;
+    float scale;
     Color back;
     int c=-1, r=-1;
     int [][]a=new int[9][9];
@@ -45,16 +46,18 @@ int width=0;
         smile = BitmapFactory.decodeResource(getResources(), R.drawable.smile);
         sh=getHolder();
         p=new Paint();
-        p.setStrokeWidth(3);
         con=context;
         sh.addCallback(this);
         setOnTouchListener(this);
-        p.setTextSize(40);
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         t = new Thread(this);
+        scale=getWidth()/720;
+        Log.e("Width", getWidth() + "");
+        p.setStrokeWidth(3*scale);
+        p.setTextSize(40*scale);
         t.start();
     }
 
@@ -86,25 +89,26 @@ running = false;
             can.drawRect(0, 0, this.getWidth(), getWidth(), p);
             p.setColor(Color.BLACK);
             for(int i=1;i<11;i++){
-                if((i-1)%3==0)p.setStrokeWidth(4);
-                else p.setStrokeWidth(3);
+                if((i-1)%3==0)p.setStrokeWidth(4*scale);
+                else p.setStrokeWidth(3*scale);
             can.drawLine(col*i,col,col*i,w,p);}
 
             for(int i=1;i<11;i++){
-                if((i-1)%3==0)p.setStrokeWidth(4);
-                else p.setStrokeWidth(3);
+                if((i-1)%3==0)p.setStrokeWidth(4*scale);
+                else p.setStrokeWidth(3*scale);
                 can.drawLine(col,col*i,w,col*i,p);}
             if(touch){
                 p.setColor(Color.CYAN);
                 can.drawRect(c*col,r*col,(c+1)*col,(r+1)*col,p);
                 p.setColor(Color.BLACK);
                 if(temp>0)
-                can.drawText(temp+" ",c*col+col/4,r*col+col,p);
+                can.drawText(temp+" ",c*col+20*scale,r*col+col-scale*15,p);
             }
+            //Draw Numbers in respective grids
             for(int i=0;i<9;i++) {
             for(int j=0;j<9;j++) {
                     if(a[i][j]>0)
-                    can.drawText(a[i][j]+"",(i+1)*col+col/4,(j+2)*col,p);
+                    can.drawText(a[i][j]+"",(i+1)*col+20*scale,(j+2)*col-scale*15,p);
             }
             }
             can.drawBitmap(smile,getWidth()/2-smile.getWidth()/2,(3*getHeight())/4,p);
