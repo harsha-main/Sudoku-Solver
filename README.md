@@ -1,5 +1,5 @@
 # Sudoku
-An Android application to solve sudoku puzzles, the algorithm used here follows a constraint method to solve the puzzle.. To input a number, just place your finger on a cell and drag it down.
+An Android application to solve sudoku puzzles, the algorithm used here follows a constraint method to solve the puzzle.. To input a number, just place your finger on a cell and swipe down.
 
 Alright, so this application solves a puzzle in the following ways.
 
